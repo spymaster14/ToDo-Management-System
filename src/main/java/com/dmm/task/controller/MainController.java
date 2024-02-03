@@ -39,7 +39,14 @@ public class MainController {
 		List<List<LocalDate>> matrix = new ArrayList<>();
 
 		// その月の1日のLocalDateを取得する
-		LocalDate day = LocalDate.now();
+		LocalDate day;
+
+		if (date == null) {
+			day = LocalDate.now();
+		} else {
+			day = date;
+		}
+
 		day = LocalDate.of(day.getYear(), day.getMonthValue(), 1);
 		LocalDate start = day;
 
@@ -95,7 +102,6 @@ public class MainController {
 
 		return "main";
 	}
-	
 
 	@GetMapping("/main/create/{date}")
 	public String create(@DateTimeFormat(pattern = "yyyy-MM-dd") @PathVariable LocalDate date) {
