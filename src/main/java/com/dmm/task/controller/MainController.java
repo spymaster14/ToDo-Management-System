@@ -84,9 +84,9 @@ public class MainController {
 		List<Tasks> list;
 
 		if (user.getUsername().equals("admin")) {
-			list = repo.findByDateBetweenAdmin(cal_start.atTime(0, 0), end.atTime(0, 0));
+			list = repo.findByDateBetweenAdmin(cal_start.atTime(0, 0), cal_end.atTime(0, 0));
 		} else {
-			list = repo.findByDateBetween(cal_start.atTime(0, 0), end.atTime(0, 0), user.getName());
+			list = repo.findByDateBetween(cal_start.atTime(0, 0), cal_end.atTime(0, 0), user.getName());
 		}
 
 		// 取得したデータをtasksに追加する
